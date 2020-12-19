@@ -2,9 +2,13 @@
  * @Author: Caviar-X、ExecuteIf
  * @Date: 2020-11-17 20:35:00
  * @LastEditTime: 2020-11-29 11:21:52
- * @LastEditors: Caviar-X
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \node.jv\main.cpp
  */
 //PLEASE READ THIS WITH UTF-8
+
+//#include "NodeJv.hpp"
 
 #include <bits/stdc++.h>
 #undef pascal
@@ -153,12 +157,17 @@ void error(int err_code)
 	}
 	case 8:
 	{
-		printf("Error:Excute function failed");
+		printf("Error:Excute function failed\n");
+		break;
+	}
+	case 9:
+	{
+		printf("Error:Unkown expression or statement\n");
 		break;
 	}
 	default:
 	{
-		printf("Node.Jv crashed :(\nat line 133 in Mk_sh.cpp expacted '}' is not exist\n note: Jvav.loadlibrary is busy. Plese visit http://jvavexec.top to contact the author");
+		printf("Node.Jv crashed :(\nat line 133 in Mk_sh.cpp expacted '}' is not exist\n note: Jvav.loadlibrary is busy. Plese visit http://jvavexec.top to contact the author\n");
 		exit(0);
 		break;
 	}
@@ -218,7 +227,7 @@ void Dispatch_message(string arg)
 	else if (arg == "help")
 	{
 		
-		Setcolor(FG_BLUE);
+		Setcolor(FG_YELLOW);
 		printf("     |\\     |            |               ---------      (C) 2020                                          \n");
 		printf("     | \\    |            |                   |                                                            \n");
 		printf("     |  \\   |            |  ___              |                                                            \n");
@@ -325,10 +334,9 @@ void Dispatch_message(string arg)
 		printf("----------module fs help----------\n");
 		printf("create(filename): create a file named filename\n");
 		printf("write(strings):write strings with create file\n");
-		printf("readline(linenumber):read a file\n");
 		printf("close(): close this filestream\n");
 		Setcolor(FG_YELLOW);
-		printf("Warning: Node.Jv does not support multi thread now.");
+		printf("Warning: Node.Jv does not support multi thread now.\n");
 		Setcolor(FG_DEEPGREEN);
 		printf("----------module fs help----------\n");
 		Resetcolor();
@@ -436,12 +444,15 @@ void Dispatch_message(string arg)
 		else if (arg[arg.size() - 2] != ')')
 			error(1);
 		else
+		{
 			for (size_t i = 6; i <= arg.size() - 3; i++) //exit(1);
 			{
 				tmpint*=10;
 				tmpint+=(arg[i]-48);
 			}
 			exit(tmpint);
+		}
+			
 	}
 	//time模块实现
 	else if (arg == "time help")
@@ -518,10 +529,11 @@ void Dispatch_message(string arg)
 		}
 	}
 	else if(arg=="crash"){error(0xff);}
+	else if(arg=="exit"){exit(0);}
 	// insert New Functions Here...
 	else
 	{
-		error(111);
+		error(9);
 	}
 }
 
