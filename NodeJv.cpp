@@ -1,9 +1,9 @@
 /*
  * @Author: Caviar-X、ExecuteIf
- * @Date: 2020-12-19 15:30:25
+ * @Date: 2020-12-19 20:30:25
  * @LastEditTime: 2020-12-19 15:30:25
- * @LastEditors: ExecuteIf
- * @Description: Linux Version
+ * @LastEditors: Caviar-X
+ * @Description: Linux Version +Color
  * @FilePath: \node.jv\main.cpp
  */
 //PLEASE READ THIS WITH UTF-8
